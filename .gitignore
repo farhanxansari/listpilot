@@ -7,3 +7,5 @@ node_modules/
 evals/images/
 pricing/data/
 .ipynb_checkpoints/
+.ruff_cache/
+!backend/app/assets/price_model.joblib

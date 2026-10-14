@@ -40,3 +40,12 @@ class CarAttributes(BaseModel):
         default=None,
         description="Anything limiting the assessment, e.g. 'rear not visible'",
     )
+
+
+class SellerInput(BaseModel):
+    registration_number: str
+    year: int = Field(ge=1990, le=2030)
+    km_driven: int = Field(ge=0)
+    fuel_type: str = Field(description="Petrol, Diesel, CNG, LPG or Electric")
+    transmission_type: str = Field(description="Manual or Automatic")
+    seller_notes: str | None = None
