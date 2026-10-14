@@ -199,8 +199,10 @@ TOOLS = {
     "estimate_price": (
         PriceArgs,
         estimate_price,
-        "Estimate an 80% calibrated price band in INR for the car. "
-        "If it returns retryable=false, do not call it again.",
+        (
+            "Estimate an 80% calibrated price band in INR for the car. "
+            "If it returns retryable=false, do not call it again."
+        ),
     ),
     "flag_for_inspection": (
         FlagArgs,
@@ -243,13 +245,15 @@ def run_tool(name: str, raw_args: str, state: AgentState) -> dict:
     state.calls[name] = state.calls.get(name, 0) + 1
     if state.calls[name] > MAX_CALLS.get(name, 3):
         return {
-            "error": f"{name} call limit reached. Do not call it again; "
-            "flag any problem and submit the listing."
+            "error": (
+                f"{name} call limit reached. Do not call it again; "
+                "flag any problem and submit the listing."
+            )
         }
     args_model, fn, _ = TOOLS[name]
     try:
         return fn(args_model.model_validate_json(raw_args or "{}"), state)
     except ValidationError as e:
         return {"error": f"invalid arguments: {e}"}
-    except Exception as e:  # tool errors go back to the model, never crash the loop
+    except Exception as e:  # noqa: BLE001 - tool errors go back to the model, never crash the loop
         return {"error": f"{type(e).__name__}: {e}"}
