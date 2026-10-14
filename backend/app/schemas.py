@@ -1,0 +1,42 @@
+from typing import Literal
+
+from pydantic import BaseModel, Field
+
+from app.vocab import BODY_TYPES, COLOURS, DAMAGE_LOCATIONS, DAMAGE_TYPES
+
+BodyType = Literal[tuple(sorted(BODY_TYPES))]
+Colour = Literal[tuple(sorted(COLOURS))]
+DamageType = Literal[tuple(sorted(DAMAGE_TYPES))]
+DamageLocation = Literal[tuple(sorted(DAMAGE_LOCATIONS))]
+Confidence = float
+
+
+class Damage(BaseModel):
+    type: DamageType
+    location: DamageLocation
+    description: str = Field(
+        description="Short visual description, e.g. 'shallow dent near handle'"
+    )
+    confidence: Confidence = Field(ge=0, le=1)
+
+
+class FieldConfidence(BaseModel):
+    make: Confidence = Field(ge=0, le=1)
+    model: Confidence = Field(ge=0, le=1)
+    body_type: Confidence = Field(ge=0, le=1)
+    colour: Confidence = Field(ge=0, le=1)
+
+
+class CarAttributes(BaseModel):
+    make: str | None = Field(description="Manufacturer, null if not identifiable")
+    model: str | None = Field(description="Model name, null if not identifiable")
+    body_type: BodyType
+    colour: Colour
+    damages: list[Damage] = Field(
+        description="Only clearly visible damage. Empty list if none."
+    )
+    confidence: FieldConfidence
+    notes: str | None = Field(
+        default=None,
+        description="Anything limiting the assessment, e.g. 'rear not visible'",
+    )
