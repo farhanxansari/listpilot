@@ -1,0 +1,1372 @@
+{
+  "summary": {
+    "model": "qwen/qwen3.8-27b",
+    "cars": 30,
+    "failures": 0,
+    "make_acc": 0.8,
+    "model_acc": 0.47368421052631576,
+    "body_type_acc": 0.5666666666666667,
+    "colour_acc": 0.8333333333333334,
+    "damage_precision": 1.0,
+    "damage_recall": 1.0,
+    "latency_mean": 24.008797063336047,
+    "latency_p95": 25.920921199998702,
+    "retries": 0,
+    "tokens_mean": 2621.0666666666666
+  },
+  "rows": [
+    {
+      "car_id": "car_001",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 1.9678682000085246,
+      "attempts": 1,
+      "tokens": 2767,
+      "pred": {
+        "make": "Honda",
+        "model": "Amaze",
+        "body_type": "sedan",
+        "colour": "grey",
+        "damages": [],
+        "confidence": {
+          "make": 1.0,
+          "model": 1.0,
+          "body_type": 0.95,
+          "colour": 0.9
+        },
+        "notes": "Vehicle is a showroom display unit (new car) with protective plastic on interior seats. No visible damage."
+      },
+      "conf": {
+        "make": 1.0,
+        "model": 1.0,
+        "body_type": 0.95,
+        "colour": 0.9
+      },
+      "make_ok": true,
+      "model_ok": true,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_002",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 4.298904700001003,
+      "attempts": 1,
+      "tokens": 2767,
+      "pred": {
+        "make": "Tata",
+        "model": "Tigb",
+        "body_type": "suv",
+        "colour": "red",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.98
+        },
+        "notes": "Assessment based on front and side views; rear of the vehicle is not visible."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.98
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_003",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.920921199998702,
+      "attempts": 1,
+      "tokens": 2824,
+      "pred": {
+        "make": "Maruti Suzuki",
+        "model": "S-Cross",
+        "body_type": "suv",
+        "colour": "blue",
+        "damages": [
+          {
+            "type": "scratch",
+            "location": "front_bumper",
+            "description": "Visible scuff marks and paint wear on the lower black plastic section of the front bumper",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.95
+        },
+        "notes": "Rear of the vehicle is not visible in the provided photos."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.95
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "scratch"
+      ],
+      "pred_types": [
+        "scratch"
+      ]
+    },
+    {
+      "car_id": "car_004",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.21222420000413,
+      "attempts": 1,
+      "tokens": 1738,
+      "pred": {
+        "make": "Tata",
+        "model": "Tigor",
+        "body_type": "sedan",
+        "colour": "black",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.95
+        },
+        "notes": "Rear of the vehicle is not visible in the provided photos."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.95
+      },
+      "make_ok": true,
+      "model_ok": true,
+      "body_ok": false,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_005",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.41317220000201,
+      "attempts": 1,
+      "tokens": 2760,
+      "pred": {
+        "make": "Jeep",
+        "model": "Wrangler",
+        "body_type": "suv",
+        "colour": "red",
+        "damages": [],
+        "confidence": {
+          "make": 1.0,
+          "model": 0.95,
+          "body_type": 0.95,
+          "colour": 1.0
+        },
+        "notes": "Front bumper and full front view not visible in provided photos."
+      },
+      "conf": {
+        "make": 1.0,
+        "model": 0.95,
+        "body_type": 0.95,
+        "colour": 1.0
+      },
+      "make_ok": false,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_006",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.72306400000525,
+      "attempts": 1,
+      "tokens": 1915,
+      "pred": {
+        "make": "Maruti Suzuki",
+        "model": "Swift",
+        "body_type": "hatchback",
+        "colour": "white",
+        "damages": [
+          {
+            "type": "shattered_glass",
+            "location": "windshield",
+            "description": "Extensive spider-web cracking across the entire windshield",
+            "confidence": 0.98
+          },
+          {
+            "type": "dent",
+            "location": "bonnet",
+            "description": "Large, deep crumple and deformation on the front section of the bonnet",
+            "confidence": 0.98
+          },
+          {
+            "type": "dent",
+            "location": "front_bumper",
+            "description": "Visible crumpling and misalignment on the front bumper below the grille",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.98
+        },
+        "notes": "Vehicle appears to be abandoned or in a salvage state, parked on a roadside verge with vegetation growing around the front bumper."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.98
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "crack",
+        "dent"
+      ],
+      "pred_types": [
+        "dent",
+        "shattered_glass"
+      ]
+    },
+    {
+      "car_id": "car_007",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.257275299998582,
+      "attempts": 1,
+      "tokens": 2826,
+      "pred": {
+        "make": null,
+        "model": null,
+        "body_type": "sedan",
+        "colour": "white",
+        "damages": [
+          {
+            "type": "shattered_glass",
+            "location": "windshield",
+            "description": "Windshield is completely shattered with glass fragments scattered across the rear deck and interior",
+            "confidence": 0.98
+          }
+        ],
+        "confidence": {
+          "make": 0.0,
+          "model": 0.0,
+          "body_type": 0.85,
+          "colour": 0.95
+        },
+        "notes": "Only the rear and roof of the vehicle are visible. Make and model cannot be identified from these angles."
+      },
+      "conf": {
+        "make": 0.0,
+        "model": 0.0,
+        "body_type": 0.85,
+        "colour": 0.95
+      },
+      "make_ok": null,
+      "model_ok": null,
+      "body_ok": false,
+      "colour_ok": true,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "crack",
+        "shattered_glass"
+      ],
+      "pred_types": [
+        "shattered_glass"
+      ]
+    },
+    {
+      "car_id": "car_008",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.09539109999605,
+      "attempts": 1,
+      "tokens": 2829,
+      "pred": {
+        "make": "BMW",
+        "model": "318i",
+        "body_type": "sedan",
+        "colour": "silver",
+        "damages": [
+          {
+            "type": "shattered_glass",
+            "location": "windshield",
+            "description": "Windshield is extensively shattered with numerous impact points and cracks covering the entire glass surface.",
+            "confidence": 0.98
+          }
+        ],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.9,
+          "colour": 0.95
+        },
+        "notes": "Assessment based on rear and rear-quarter views. Front of the vehicle is not visible."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.9,
+        "colour": 0.95
+      },
+      "make_ok": true,
+      "model_ok": null,
+      "body_ok": false,
+      "colour_ok": true,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "crack",
+        "shattered_glass"
+      ],
+      "pred_types": [
+        "shattered_glass"
+      ]
+    },
+    {
+      "car_id": "car_009",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.30204340000637,
+      "attempts": 1,
+      "tokens": 2829,
+      "pred": {
+        "make": null,
+        "model": null,
+        "body_type": "sedan",
+        "colour": "black",
+        "damages": [
+          {
+            "type": "dent",
+            "location": "boot",
+            "description": "Large, deep dent with significant paint distortion and crumpling on the rear panel below the taillamp",
+            "confidence": 0.95
+          }
+        ],
+        "confidence": {
+          "make": 0.0,
+          "model": 0.0,
+          "body_type": 0.6,
+          "colour": 0.9
+        },
+        "notes": "Only a close-up of the rear quarter panel and boot is visible. Make and model cannot be identified from this angle."
+      },
+      "conf": {
+        "make": 0.0,
+        "model": 0.0,
+        "body_type": 0.6,
+        "colour": 0.9
+      },
+      "make_ok": null,
+      "model_ok": null,
+      "body_ok": false,
+      "colour_ok": false,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "dent"
+      ],
+      "pred_types": [
+        "dent"
+      ]
+    },
+    {
+      "car_id": "car_010",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.4117164999916,
+      "attempts": 1,
+      "tokens": 2008,
+      "pred": {
+        "make": "Smart",
+        "model": "Fortwo",
+        "body_type": "hatchback",
+        "colour": "blue",
+        "damages": [
+          {
+            "type": "shattered_glass",
+            "location": "windshield",
+            "description": "Windshield is completely shattered with a large spiderweb crack pattern",
+            "confidence": 0.98
+          },
+          {
+            "type": "dent",
+            "location": "front_bumper",
+            "description": "Front bumper is severely crushed, crumpled, and misaligned",
+            "confidence": 0.98
+          },
+          {
+            "type": "dent",
+            "location": "front_left_door",
+            "description": "Front left door is heavily crumpled and bent inwards",
+            "confidence": 0.95
+          },
+          {
+            "type": "dent",
+            "location": "left_fender",
+            "description": "Left fender is crushed and deformed",
+            "confidence": 0.95
+          },
+          {
+            "type": "broken_lamp",
+            "location": "headlamp",
+            "description": "Headlamp assembly is broken and detached from the body",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": {
+          "make": 0.9,
+          "model": 0.85,
+          "body_type": 0.95,
+          "colour": 0.95
+        },
+        "notes": "Vehicle has sustained catastrophic front-end collision damage. Only the front-left side is clearly visible."
+      },
+      "conf": {
+        "make": 0.9,
+        "model": 0.85,
+        "body_type": 0.95,
+        "colour": 0.95
+      },
+      "make_ok": false,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "crack",
+        "dent",
+        "flat_tyre",
+        "shattered_glass"
+      ],
+      "pred_types": [
+        "broken_lamp",
+        "dent",
+        "shattered_glass"
+      ]
+    },
+    {
+      "car_id": "car_011",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.056221300008474,
+      "attempts": 1,
+      "tokens": 2835,
+      "pred": {
+        "make": null,
+        "model": null,
+        "body_type": "sedan",
+        "colour": "silver",
+        "damages": [
+          {
+            "type": "crack",
+            "location": "windshield",
+            "description": "Windshield is completely shattered and missing, with the glass frame exposed and a white tarp covering the opening.",
+            "confidence": 0.95
+          }
+        ],
+        "confidence": {
+          "make": 0.0,
+          "model": 0.0,
+          "body_type": 0.8,
+          "colour": 0.9
+        },
+        "notes": "Only the roof and side profile are visible. The windshield is destroyed and covered with a tarp. Make and model cannot be identified from these angles."
+      },
+      "conf": {
+        "make": 0.0,
+        "model": 0.0,
+        "body_type": 0.8,
+        "colour": 0.9
+      },
+      "make_ok": null,
+      "model_ok": null,
+      "body_ok": false,
+      "colour_ok": false,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "shattered_glass"
+      ],
+      "pred_types": [
+        "crack"
+      ]
+    },
+    {
+      "car_id": "car_012",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.87750450000749,
+      "attempts": 1,
+      "tokens": 2821,
+      "pred": {
+        "make": null,
+        "model": null,
+        "body_type": "sedan",
+        "colour": "red",
+        "damages": [
+          {
+            "type": "shattered_glass",
+            "location": "windshield",
+            "description": "Windshield is completely shattered with glass fragments scattered across the dashboard and interior",
+            "confidence": 0.95
+          }
+        ],
+        "confidence": {
+          "make": 0.0,
+          "model": 0.0,
+          "body_type": 0.6,
+          "colour": 0.95
+        },
+        "notes": "Only partial side view and interior visible. Make and model cannot be identified from these angles."
+      },
+      "conf": {
+        "make": 0.0,
+        "model": 0.0,
+        "body_type": 0.6,
+        "colour": 0.95
+      },
+      "make_ok": null,
+      "model_ok": null,
+      "body_ok": false,
+      "colour_ok": true,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "shattered_glass"
+      ],
+      "pred_types": [
+        "shattered_glass"
+      ]
+    },
+    {
+      "car_id": "car_013",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.619508500007214,
+      "attempts": 1,
+      "tokens": 2883,
+      "pred": {
+        "make": "Mazda",
+        "model": "MX-5",
+        "body_type": "convertible",
+        "colour": "silver",
+        "damages": [
+          {
+            "type": "dent",
+            "location": "front_right_door",
+            "description": "Severe crumpling and deformation of the door panel and lower bodywork",
+            "confidence": 0.95
+          },
+          {
+            "type": "dent",
+            "location": "right_fender",
+            "description": "Deep impact damage and crumpling on the front right fender",
+            "confidence": 0.95
+          }
+        ],
+        "confidence": {
+          "make": 0.9,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.95
+        },
+        "notes": "Vehicle is heavily damaged on the right side, likely from a collision. The boot lid is open."
+      },
+      "conf": {
+        "make": 0.9,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.95
+      },
+      "make_ok": null,
+      "model_ok": null,
+      "body_ok": false,
+      "colour_ok": true,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "dent",
+        "shattered_glass"
+      ],
+      "pred_types": [
+        "dent"
+      ]
+    },
+    {
+      "car_id": "car_014",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.868788200008566,
+      "attempts": 1,
+      "tokens": 1969,
+      "pred": {
+        "make": "Toyota",
+        "model": "Corolla",
+        "body_type": "sedan",
+        "colour": "silver",
+        "damages": [
+          {
+            "type": "crack",
+            "location": "windshield",
+            "description": "Severe shattering and cracking of the rear windshield glass",
+            "confidence": 0.95
+          },
+          {
+            "type": "dent",
+            "location": "boot",
+            "description": "Heavy deformation and crushing of the rear trunk lid",
+            "confidence": 0.95
+          },
+          {
+            "type": "dent",
+            "location": "rear_bumper",
+            "description": "Rear bumper is detached, crushed, and hanging down",
+            "confidence": 0.95
+          },
+          {
+            "type": "dent",
+            "location": "rear_left_door",
+            "description": "Visible denting and creasing on the lower panel of the rear left door",
+            "confidence": 0.85
+          }
+        ],
+        "confidence": {
+          "make": 0.85,
+          "model": 0.75,
+          "body_type": 0.95,
+          "colour": 0.9
+        },
+        "notes": "Vehicle has sustained a severe rear-end collision. The rear bumper is detached and lying on the ground. The trunk lid is crushed upwards, and the rear windshield is shattered."
+      },
+      "conf": {
+        "make": 0.85,
+        "model": 0.75,
+        "body_type": 0.95,
+        "colour": 0.9
+      },
+      "make_ok": null,
+      "model_ok": null,
+      "body_ok": false,
+      "colour_ok": true,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "dent",
+        "shattered_glass"
+      ],
+      "pred_types": [
+        "crack",
+        "dent"
+      ]
+    },
+    {
+      "car_id": "car_015",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.454653599997982,
+      "attempts": 1,
+      "tokens": 2829,
+      "pred": {
+        "make": "Toyota",
+        "model": "Camry",
+        "body_type": "sedan",
+        "colour": "white",
+        "damages": [
+          {
+            "type": "dent",
+            "location": "front_left_door",
+            "description": "Severe crushing and deformation of the front left door panel",
+            "confidence": 0.95
+          }
+        ],
+        "confidence": {
+          "make": 0.85,
+          "model": 0.6,
+          "body_type": 0.9,
+          "colour": 0.95
+        },
+        "notes": "Car is on a lift with the bonnet open. The front left door is heavily damaged and appears to be detached or hanging loosely."
+      },
+      "conf": {
+        "make": 0.85,
+        "model": 0.6,
+        "body_type": 0.9,
+        "colour": 0.95
+      },
+      "make_ok": null,
+      "model_ok": null,
+      "body_ok": false,
+      "colour_ok": true,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "dent",
+        "flat_tyre"
+      ],
+      "pred_types": [
+        "dent"
+      ]
+    },
+    {
+      "car_id": "car_016",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.373728200007463,
+      "attempts": 1,
+      "tokens": 2879,
+      "pred": {
+        "make": null,
+        "model": null,
+        "body_type": "suv",
+        "colour": "silver",
+        "damages": [
+          {
+            "type": "dent",
+            "location": "rear_left_door",
+            "description": "Severe structural deformation and crushing of the rear left door panel",
+            "confidence": 0.95
+          },
+          {
+            "type": "dent",
+            "location": "left_fender",
+            "description": "Visible damage and misalignment to the rear left fender area near the wheel arch",
+            "confidence": 0.85
+          }
+        ],
+        "confidence": {
+          "make": 0.0,
+          "model": 0.0,
+          "body_type": 0.8,
+          "colour": 0.9
+        },
+        "notes": "Only the rear left side of the vehicle is visible. The car has sustained significant collision damage to the rear left quarter."
+      },
+      "conf": {
+        "make": 0.0,
+        "model": 0.0,
+        "body_type": 0.8,
+        "colour": 0.9
+      },
+      "make_ok": null,
+      "model_ok": null,
+      "body_ok": false,
+      "colour_ok": false,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "dent"
+      ],
+      "pred_types": [
+        "dent"
+      ]
+    },
+    {
+      "car_id": "car_017",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.80666370000108,
+      "attempts": 1,
+      "tokens": 2972,
+      "pred": {
+        "make": "Toyota",
+        "model": "Camry",
+        "body_type": "sedan",
+        "colour": "silver",
+        "damages": [
+          {
+            "type": "dent",
+            "location": "front_bumper",
+            "description": "Severe crushing and deformation of the front bumper corner",
+            "confidence": 0.95
+          },
+          {
+            "type": "shattered_glass",
+            "location": "headlamp",
+            "description": "Headlamp lens is broken and shattered",
+            "confidence": 0.95
+          },
+          {
+            "type": "dent",
+            "location": "left_fender",
+            "description": "Deep crumpling and creasing of the front fender panel",
+            "confidence": 0.95
+          },
+          {
+            "type": "dent",
+            "location": "bonnet",
+            "description": "Visible creasing and deformation on the front edge of the bonnet",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": {
+          "make": 0.85,
+          "model": 0.75,
+          "body_type": 0.9,
+          "colour": 0.95
+        },
+        "notes": "Assessment based on front-left corner views; significant collision damage present."
+      },
+      "conf": {
+        "make": 0.85,
+        "model": 0.75,
+        "body_type": 0.9,
+        "colour": 0.95
+      },
+      "make_ok": null,
+      "model_ok": null,
+      "body_ok": false,
+      "colour_ok": false,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "dent",
+        "shattered_glass"
+      ],
+      "pred_types": [
+        "dent",
+        "shattered_glass"
+      ]
+    },
+    {
+      "car_id": "car_018",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.49561779999931,
+      "attempts": 1,
+      "tokens": 2975,
+      "pred": {
+        "make": null,
+        "model": null,
+        "body_type": "suv",
+        "colour": "black",
+        "damages": [
+          {
+            "type": "dent",
+            "location": "bonnet",
+            "description": "Severe crumpling and deformation of the bonnet",
+            "confidence": 0.95
+          },
+          {
+            "type": "dent",
+            "location": "front_bumper",
+            "description": "Front bumper is heavily crushed, detached, and distorted",
+            "confidence": 0.95
+          },
+          {
+            "type": "broken_lamp",
+            "location": "headlamp",
+            "description": "Left headlamp assembly is shattered and missing",
+            "confidence": 0.9
+          },
+          {
+            "type": "dent",
+            "location": "left_fender",
+            "description": "Left fender is crumpled and bent inward",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": {
+          "make": 0.1,
+          "model": 0.1,
+          "body_type": 0.8,
+          "colour": 0.9
+        },
+        "notes": "Vehicle has sustained catastrophic front-end collision damage. Make and model are not identifiable due to the extent of the damage and lack of visible badging."
+      },
+      "conf": {
+        "make": 0.1,
+        "model": 0.1,
+        "body_type": 0.8,
+        "colour": 0.9
+      },
+      "make_ok": null,
+      "model_ok": null,
+      "body_ok": false,
+      "colour_ok": true,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "crack",
+        "dent"
+      ],
+      "pred_types": [
+        "broken_lamp",
+        "dent"
+      ]
+    },
+    {
+      "car_id": "car_019",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.470521399998688,
+      "attempts": 1,
+      "tokens": 2250,
+      "pred": {
+        "make": "Mahindra",
+        "model": "XUV500",
+        "body_type": "suv",
+        "colour": "black",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.98
+        },
+        "notes": "Front view only. Rear and sides not visible."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.98
+      },
+      "make_ok": true,
+      "model_ok": true,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_020",
+      "difficulty": "hard",
+      "error": null,
+      "latency": 25.41080189999775,
+      "attempts": 1,
+      "tokens": 2778,
+      "pred": {
+        "make": "Mahindra",
+        "model": "Thar",
+        "body_type": "suv",
+        "colour": "red",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.95
+        },
+        "notes": "Vehicle is parked in the distance in front of a temple; only the side and rear are visible. No clear damage is visible from this distance."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.95
+      },
+      "make_ok": true,
+      "model_ok": true,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_021",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.31727289999253,
+      "attempts": 1,
+      "tokens": 1742,
+      "pred": {
+        "make": "Mazda",
+        "model": "CX-8",
+        "body_type": "suv",
+        "colour": "white",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.98
+        },
+        "notes": "Assessment based on front and side views; rear and interior not visible."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.98
+      },
+      "make_ok": false,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_022",
+      "difficulty": "hard",
+      "error": null,
+      "latency": 25.32121680000273,
+      "attempts": 1,
+      "tokens": 2762,
+      "pred": {
+        "make": "Mahindra",
+        "model": "Thar",
+        "body_type": "suv",
+        "colour": "green",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.95
+        },
+        "notes": "Rear of the vehicle is not visible in the provided photos."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.95
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_023",
+      "difficulty": "hard",
+      "error": null,
+      "latency": 25.51684739999473,
+      "attempts": 1,
+      "tokens": 2765,
+      "pred": {
+        "make": "Kia",
+        "model": "Seltos",
+        "body_type": "suv",
+        "colour": "grey",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.85,
+          "body_type": 0.95,
+          "colour": 0.9
+        },
+        "notes": "Only front and front-left side visible. Rear and right side not visible."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.85,
+        "body_type": 0.95,
+        "colour": 0.9
+      },
+      "make_ok": true,
+      "model_ok": true,
+      "body_ok": true,
+      "colour_ok": false,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_024",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.714299500003108,
+      "attempts": 1,
+      "tokens": 2761,
+      "pred": {
+        "make": "Hyundai",
+        "model": "Venue",
+        "body_type": "suv",
+        "colour": "green",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.95
+        },
+        "notes": "Rear of the vehicle is not visible in the provided photos."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.95
+      },
+      "make_ok": true,
+      "model_ok": true,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_025",
+      "difficulty": "hard",
+      "error": null,
+      "latency": 25.720928000009735,
+      "attempts": 1,
+      "tokens": 2763,
+      "pred": {
+        "make": "Hyundai",
+        "model": "Alcazar",
+        "body_type": "suv",
+        "colour": "grey",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.85,
+          "body_type": 0.9,
+          "colour": 0.9
+        },
+        "notes": "Rear bumper and full rear view not visible in the provided photos."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.85,
+        "body_type": 0.9,
+        "colour": 0.9
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_026",
+      "difficulty": "hard",
+      "error": null,
+      "latency": 25.357443500004592,
+      "attempts": 1,
+      "tokens": 2766,
+      "pred": {
+        "make": "Hyundai",
+        "model": "Creta",
+        "body_type": "suv",
+        "colour": "grey",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.85,
+          "body_type": 0.95,
+          "colour": 0.9
+        },
+        "notes": "Assessment based on front and side views; rear of the vehicle is not visible."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.85,
+        "body_type": 0.95,
+        "colour": 0.9
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": false,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_027",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 26.051563600005466,
+      "attempts": 1,
+      "tokens": 2808,
+      "pred": {
+        "make": "Hyundai",
+        "model": "i20",
+        "body_type": "hatchback",
+        "colour": "other",
+        "damages": [],
+        "confidence": {
+          "make": 1.0,
+          "model": 0.95,
+          "body_type": 0.95,
+          "colour": 0.9
+        },
+        "notes": "Vehicle is a rally car with a multi-colour livery (white, red, blue). The car is shown on a dirt/grass track, which explains the presence of dirt and mud on the lower body panels and wheels. No specific mechanical damage is clearly visible in the provided angles."
+      },
+      "conf": {
+        "make": 1.0,
+        "model": 0.95,
+        "body_type": 0.95,
+        "colour": 0.9
+      },
+      "make_ok": true,
+      "model_ok": true,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_028",
+      "difficulty": "hard",
+      "error": null,
+      "latency": 25.421066900002188,
+      "attempts": 1,
+      "tokens": 2779,
+      "pred": {
+        "make": "Toyota",
+        "model": "Yaris Cross",
+        "body_type": "suv",
+        "colour": "white",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.85,
+          "body_type": 0.9,
+          "colour": 0.95
+        },
+        "notes": "Vehicle is an electric hybrid (charging cable visible). Photos are taken at night with some motion blur, limiting detailed inspection of the rear and side panels."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.85,
+        "body_type": 0.9,
+        "colour": 0.95
+      },
+      "make_ok": false,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_029",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.267493900013505,
+      "attempts": 1,
+      "tokens": 2264,
+      "pred": {
+        "make": "Suzuki",
+        "model": "Swift",
+        "body_type": "hatchback",
+        "colour": "red",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.98
+        },
+        "notes": "Assessment based on front and side views only; rear of the vehicle is not visible. No clear damage observed on visible panels."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.98
+      },
+      "make_ok": true,
+      "model_ok": true,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_030",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.539189500006614,
+      "attempts": 1,
+      "tokens": 2768,
+      "pred": {
+        "make": "Maruti Suzuki",
+        "model": "Ertiga",
+        "body_type": "muv",
+        "colour": "white",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.98
+        },
+        "notes": "Assessment based on front and side views; rear bumper and boot not fully visible."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.98
+      },
+      "make_ok": true,
+      "model_ok": true,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    }
+  ]
+}
