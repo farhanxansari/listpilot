@@ -8,4 +8,5 @@ evals/images/
 pricing/data/
 .ipynb_checkpoints/
 .ruff_cache/
+evals/candidates/
 !backend/app/assets/price_model.joblib

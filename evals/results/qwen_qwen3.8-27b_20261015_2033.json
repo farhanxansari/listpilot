@@ -1,0 +1,208 @@
+{
+  "summary": {
+    "model": "qwen/qwen3.8-27b",
+    "cars": 5,
+    "failures": 0,
+    "make_acc": 0.8,
+    "model_acc": 0.4,
+    "body_type_acc": 0.8,
+    "colour_acc": 0.8,
+    "damage_precision": 0.0,
+    "damage_recall": null,
+    "latency_mean": 16.70985695999989,
+    "latency_p95": 26.109537900003488,
+    "retries": 0,
+    "tokens_mean": 2571.2
+  },
+  "rows": [
+    {
+      "car_id": "car_001",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 1.8726966999965953,
+      "attempts": 1,
+      "tokens": 2767,
+      "pred": {
+        "make": "Honda",
+        "model": "Amaze",
+        "body_type": "sedan",
+        "colour": "grey",
+        "damages": [],
+        "confidence": {
+          "make": 1.0,
+          "model": 1.0,
+          "body_type": 0.95,
+          "colour": 0.9
+        },
+        "notes": "Vehicle is a showroom display unit (new car) with protective plastic on interior seats. No visible damage."
+      },
+      "conf": {
+        "make": 1.0,
+        "model": 1.0,
+        "body_type": 0.95,
+        "colour": 0.9
+      },
+      "make_ok": true,
+      "model_ok": true,
+      "body_ok": true,
+      "colour_ok": false,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_002",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 4.230762399995001,
+      "attempts": 1,
+      "tokens": 2767,
+      "pred": {
+        "make": "Tata",
+        "model": "Tigb",
+        "body_type": "suv",
+        "colour": "red",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.98
+        },
+        "notes": "Assessment based on front and side views; rear of the vehicle is not visible."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.98
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_003",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 26.109537900003488,
+      "attempts": 1,
+      "tokens": 2824,
+      "pred": {
+        "make": "Maruti Suzuki",
+        "model": "S-Cross",
+        "body_type": "suv",
+        "colour": "blue",
+        "damages": [
+          {
+            "type": "scratch",
+            "location": "front_bumper",
+            "description": "Visible scuff marks and paint wear on the lower black plastic section of the front bumper",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.95
+        },
+        "notes": "Rear of the vehicle is not visible in the provided photos."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.95
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": true,
+      "true_types": [],
+      "pred_types": [
+        "scratch"
+      ]
+    },
+    {
+      "car_id": "car_004",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.925649800003157,
+      "attempts": 1,
+      "tokens": 1738,
+      "pred": {
+        "make": "Tata",
+        "model": "Tigor",
+        "body_type": "sedan",
+        "colour": "black",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.95
+        },
+        "notes": "Rear of the vehicle is not visible in the provided photos."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.95
+      },
+      "make_ok": true,
+      "model_ok": true,
+      "body_ok": false,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_005",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 25.4106380000012,
+      "attempts": 1,
+      "tokens": 2760,
+      "pred": {
+        "make": "Jeep",
+        "model": "Wrangler",
+        "body_type": "suv",
+        "colour": "red",
+        "damages": [],
+        "confidence": {
+          "make": 1.0,
+          "model": 0.95,
+          "body_type": 0.95,
+          "colour": 1.0
+        },
+        "notes": "Front bumper and full front view not visible in provided photos."
+      },
+      "conf": {
+        "make": 1.0,
+        "model": 0.95,
+        "body_type": 0.95,
+        "colour": 1.0
+      },
+      "make_ok": false,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    }
+  ]
+}

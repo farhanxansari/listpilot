@@ -53,5 +53,5 @@ DAMAGE_LOCATIONS = {
     "other",
 }
 
-SOURCES = {"own", "stanford", "damage_dataset"}
+SOURCES = {"own", "stanford", "damage_dataset", "wikimedia"}
 DIFFICULTIES = {"normal", "hard"}
