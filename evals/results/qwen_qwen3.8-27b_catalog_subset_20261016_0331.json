@@ -1,0 +1,107 @@
+{
+  "summary": {
+    "model": "qwen/qwen3.8-27b",
+    "cars": 3,
+    "failures": 1,
+    "make_acc": 1.0,
+    "model_acc": 0.0,
+    "body_type_acc": 1.0,
+    "colour_acc": 1.0,
+    "damage_precision": 1.0,
+    "damage_recall": 1.0,
+    "latency_mean": 2.9738992499987944,
+    "latency_p95": 4.5251280999946175,
+    "retries": 0,
+    "tokens_mean": 2795.5
+  },
+  "rows": [
+    {
+      "car_id": "car_002",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 1.4226704000029713,
+      "attempts": 1,
+      "tokens": 2767,
+      "pred": {
+        "make": "Tata",
+        "model": "Tigb",
+        "body_type": "suv",
+        "colour": "red",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.98
+        },
+        "notes": "Assessment based on front and side views; rear of the vehicle is not visible."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.98
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_003",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 4.5251280999946175,
+      "attempts": 1,
+      "tokens": 2824,
+      "pred": {
+        "make": "Maruti Suzuki",
+        "model": "S-Cross",
+        "body_type": "suv",
+        "colour": "blue",
+        "damages": [
+          {
+            "type": "scratch",
+            "location": "front_bumper",
+            "description": "Visible scuff marks and paint wear on the lower black plastic section of the front bumper",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.95
+        },
+        "notes": "Rear of the vehicle is not visible in the provided photos."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.95
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "scratch"
+      ],
+      "pred_types": [
+        "scratch"
+      ]
+    },
+    {
+      "car_id": "car_005",
+      "difficulty": "normal",
+      "error": "RateLimitError: Error code: 429 - {'error': {'message': \"Request too large for model `qwen/qwen3.8-27b` in organization `org_01m14zrhz2e1ftybgxv3dhep4m` service tier `on_demand` on output tokens per minute (OTPM): Limit 1000, Requested 1333. The request's expected output tokens exceed the enforced limit; reduce max_tokens (or the request's expected output) and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\", 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    }
+  ]
+}

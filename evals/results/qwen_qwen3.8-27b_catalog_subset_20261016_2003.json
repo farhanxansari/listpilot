@@ -1,0 +1,461 @@
+{
+  "summary": {
+    "model": "qwen/qwen3.8-27b",
+    "cars": 10,
+    "failures": 0,
+    "make_acc": 0.7,
+    "model_acc": 0.1,
+    "body_type_acc": 0.9,
+    "colour_acc": 1.0,
+    "damage_precision": 1.0,
+    "damage_recall": 1.0,
+    "latency_mean": 26.129139900003793,
+    "latency_p95": 31.087865700013936,
+    "retries": 0,
+    "tokens_mean": 3072.8
+  },
+  "rows": [
+    {
+      "car_id": "car_002",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 1.4239567999902647,
+      "attempts": 1,
+      "tokens": 3327,
+      "pred": {
+        "make": "Tata",
+        "model": "Hector",
+        "body_type": "suv",
+        "colour": "red",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.98
+        },
+        "notes": "Multiple angles provided (front 3/4, side, close-ups). No clear damage visible; minor surface dirt/reflections present."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.98
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_003",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 14.90641830000095,
+      "attempts": 1,
+      "tokens": 3375,
+      "pred": {
+        "make": "Maruti",
+        "model": "Vitara",
+        "body_type": "suv",
+        "colour": "blue",
+        "damages": [
+          {
+            "type": "scratch",
+            "location": "front_bumper",
+            "description": "Visible scuff marks and paint wear on the lower black plastic section of the front bumper",
+            "confidence": 0.85
+          }
+        ],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.95,
+          "body_type": 0.95,
+          "colour": 0.95
+        },
+        "notes": "Rear of the vehicle is not visible in the provided photos."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.95,
+        "body_type": 0.95,
+        "colour": 0.95
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "scratch"
+      ],
+      "pred_types": [
+        "scratch"
+      ]
+    },
+    {
+      "car_id": "car_005",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 30.28884079999989,
+      "attempts": 1,
+      "tokens": 3346,
+      "pred": {
+        "make": "Jeep",
+        "model": "Wrangler",
+        "body_type": "suv",
+        "colour": "red",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.95,
+          "body_type": 0.95,
+          "colour": 0.98
+        },
+        "notes": "Identification based on visible 'Jeep' branding on the front fender and the distinctive boxy body style with a rear-mounted spare wheel. The vehicle appears to be in good condition with no visible damage in the provided angles."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.95,
+        "body_type": 0.95,
+        "colour": 0.98
+      },
+      "make_ok": false,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_006",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 30.67588640001486,
+      "attempts": 1,
+      "tokens": 2510,
+      "pred": {
+        "make": "Maruti",
+        "model": "Swift",
+        "body_type": "hatchback",
+        "colour": "white",
+        "damages": [
+          {
+            "type": "shattered_glass",
+            "location": "windshield",
+            "description": "Extensive spider-web cracking across the entire windshield",
+            "confidence": 0.98
+          },
+          {
+            "type": "dent",
+            "location": "bonnet",
+            "description": "Large, deep crumple and dent on the front section of the bonnet",
+            "confidence": 0.98
+          },
+          {
+            "type": "dent",
+            "location": "front_bumper",
+            "description": "Severe crumpling and deformation of the front bumper assembly",
+            "confidence": 0.95
+          },
+          {
+            "type": "dent",
+            "location": "right_fender",
+            "description": "Visible crumpling and deformation on the front right fender near the wheel arch",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.98
+        },
+        "notes": "Vehicle appears to be a total loss with severe front-end collision damage."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.98
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "crack",
+        "dent"
+      ],
+      "pred_types": [
+        "dent",
+        "shattered_glass"
+      ]
+    },
+    {
+      "car_id": "car_010",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 30.968032000004314,
+      "attempts": 1,
+      "tokens": 2564,
+      "pred": {
+        "make": "Smart",
+        "model": "Fortwo",
+        "body_type": "hatchback",
+        "colour": "blue",
+        "damages": [
+          {
+            "type": "shattered_glass",
+            "location": "windshield",
+            "description": "Windshield is completely shattered with a large spiderweb crack pattern",
+            "confidence": 0.98
+          },
+          {
+            "type": "dent",
+            "location": "front_bumper",
+            "description": "Front bumper is severely crushed, crumpled, and detached",
+            "confidence": 0.98
+          },
+          {
+            "type": "dent",
+            "location": "front_left_door",
+            "description": "Front left door is heavily crumpled and bent inwards",
+            "confidence": 0.95
+          },
+          {
+            "type": "dent",
+            "location": "left_fender",
+            "description": "Left fender is crushed and deformed",
+            "confidence": 0.95
+          },
+          {
+            "type": "broken_lamp",
+            "location": "headlamp",
+            "description": "Headlamp assembly is broken and displaced",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": {
+          "make": 0.85,
+          "model": 0.8,
+          "body_type": 0.9,
+          "colour": 0.95
+        },
+        "notes": "Vehicle is severely damaged, likely a total loss. Identification is based on the distinctive short wheelbase and two-door layout typical of Smart cars."
+      },
+      "conf": {
+        "make": 0.85,
+        "model": 0.8,
+        "body_type": 0.9,
+        "colour": 0.95
+      },
+      "make_ok": false,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": true,
+      "pred_dmg": true,
+      "true_types": [
+        "crack",
+        "dent",
+        "flat_tyre",
+        "shattered_glass"
+      ],
+      "pred_types": [
+        "broken_lamp",
+        "dent",
+        "shattered_glass"
+      ]
+    },
+    {
+      "car_id": "car_021",
+      "difficulty": "normal",
+      "error": null,
+      "latency": 29.643641500006197,
+      "attempts": 1,
+      "tokens": 2306,
+      "pred": {
+        "make": "Mahindra",
+        "model": "XUV500",
+        "body_type": "suv",
+        "colour": "white",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.98,
+          "colour": 0.98
+        },
+        "notes": "Identification based on front grille logo and headlight design. Only the left side and front of the vehicle are visible in the provided photos."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.98,
+        "colour": 0.98
+      },
+      "make_ok": true,
+      "model_ok": true,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_022",
+      "difficulty": "hard",
+      "error": null,
+      "latency": 30.918795600009616,
+      "attempts": 1,
+      "tokens": 3329,
+      "pred": {
+        "make": "Mahindra",
+        "model": "Thar",
+        "body_type": "suv",
+        "colour": "green",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.95,
+          "body_type": 0.95,
+          "colour": 0.95
+        },
+        "notes": "Front and side views only; rear of the vehicle is not visible. The car appears to be a customized model with a matte green finish."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.95,
+        "body_type": 0.95,
+        "colour": 0.95
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_025",
+      "difficulty": "hard",
+      "error": null,
+      "latency": 31.087865700013936,
+      "attempts": 1,
+      "tokens": 3317,
+      "pred": {
+        "make": "Hyundai",
+        "model": "Creta",
+        "body_type": "suv",
+        "colour": "grey",
+        "damages": [],
+        "confidence": {
+          "make": 0.98,
+          "model": 0.95,
+          "body_type": 0.98,
+          "colour": 0.95
+        },
+        "notes": "Vehicle appears to be in good condition with no visible damage in the provided angles."
+      },
+      "conf": {
+        "make": 0.98,
+        "model": 0.95,
+        "body_type": 0.98,
+        "colour": 0.95
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_026",
+      "difficulty": "hard",
+      "error": null,
+      "latency": 30.768823699996574,
+      "attempts": 1,
+      "tokens": 3329,
+      "pred": {
+        "make": "Hyundai",
+        "model": "Venue",
+        "body_type": "suv",
+        "colour": "grey",
+        "damages": [],
+        "confidence": {
+          "make": 0.95,
+          "model": 0.9,
+          "body_type": 0.95,
+          "colour": 0.9
+        },
+        "notes": "Vehicle appears to be in a Brazilian market context (license plate style, 'ESCOLAR' bus), but identified as Hyundai Venue based on visual features."
+      },
+      "conf": {
+        "make": 0.95,
+        "model": 0.9,
+        "body_type": 0.95,
+        "colour": 0.9
+      },
+      "make_ok": true,
+      "model_ok": false,
+      "body_ok": false,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    },
+    {
+      "car_id": "car_028",
+      "difficulty": "hard",
+      "error": null,
+      "latency": 30.609138200001325,
+      "attempts": 1,
+      "tokens": 3325,
+      "pred": {
+        "make": "Toyota",
+        "model": "Yaris",
+        "body_type": "suv",
+        "colour": "white",
+        "damages": [],
+        "confidence": {
+          "make": 0.9,
+          "model": 0.4,
+          "body_type": 0.95,
+          "colour": 0.95
+        },
+        "notes": "Single photo only; front and side visible. Car is plugged in (EV). Model identification is uncertain due to image quality and angle."
+      },
+      "conf": {
+        "make": 0.9,
+        "model": 0.4,
+        "body_type": 0.95,
+        "colour": 0.95
+      },
+      "make_ok": false,
+      "model_ok": false,
+      "body_ok": true,
+      "colour_ok": true,
+      "true_dmg": false,
+      "pred_dmg": false,
+      "true_types": [],
+      "pred_types": []
+    }
+  ]
+}

@@ -14,18 +14,43 @@ from app.schemas import CarAttributes
 
 client = OpenAI(base_url=settings.llm_base_url, api_key=settings.llm_api_key)
 MAX_ATTEMPTS = 3
+CATALOG_PATH = Path(__file__).parent / "assets" / "specs.json"
 
-SYSTEM_PROMPT = f"""You are a used-car inspection assistant for an Indian car marketplace.
+
+def _catalog_text() -> str:
+    rows = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
+    by_brand: dict[str, set[str]] = {}
+    for r in rows:
+        by_brand.setdefault(r["brand"], set()).add(r["model"])
+    return "\n".join(
+        f"- {b}: {', '.join(sorted(m))}" for b, m in sorted(by_brand.items())
+    )
+
+
+BASE_RULES = """You are a used-car inspection assistant for an Indian car marketplace.
 You receive photos of ONE car from different angles. Extract its attributes.
 
 Rules:
 - Report only damage you can CLEARLY see. Reflections, dirt, shadows and panel gaps are NOT damage.
 - If unsure of make or model, return null and give low confidence. Never guess confidently.
 - Confidence is 0-1: how sure you are from the photos alone.
-- Respond with ONLY a JSON object matching this schema, no prose:
-
-{json.dumps(CarAttributes.model_json_schema())}
 """
+
+CATALOG_RULES = f"""
+These are cars sold in INDIA. Many Indian models look like foreign models
+(e.g. Mahindra Thar vs Jeep Wrangler, Tata Punch vs Toyota Yaris Cross,
+Mahindra XUV700 vs Mazda CX-8). Prefer the Indian-market identification.
+If the car matches a make/model in this list, use EXACTLY these names:
+{_catalog_text()}
+If it is not in the list, give your best identification and a lower model confidence.
+"""
+
+SYSTEM_PROMPT = (
+    BASE_RULES
+    + (CATALOG_RULES if settings.catalog_prompt else "")
+    + "\n- Respond with ONLY a JSON object matching this schema, no prose:\n\n"
+    + json.dumps(CarAttributes.model_json_schema())
+)
 
 
 @dataclass

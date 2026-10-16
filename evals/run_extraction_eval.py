@@ -134,18 +134,27 @@ def main():
         for line in LABELS.read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
+    subset = len(sys.argv) > 2 and sys.argv[1] == "--only"
+    if subset:
+        wanted = set(sys.argv[2].split(","))
+        cars = [c for c in cars if c["car_id"] in wanted]
     rows = []
     for i, car in enumerate(cars, 1):
         row = evaluate_car(car)
         status = "ERR" if row["error"] else "ok"
         print(f"[{i}/{len(cars)}] {car['car_id']} {status}", flush=True)
         rows.append(row)
+        if row["error"] and "RateLimit" in row["error"]:
+            print("Rate limit hit - stopping early. Try again later.")
+            break
         time.sleep(1)  # stay under free-tier rate limits
 
     summary = summarize(rows)
     OUT.mkdir(exist_ok=True)
     stamp = datetime.now().strftime("%Y%m%d_%H%M")
     name = settings.llm_model.replace("/", "_")
+    name += "_catalog" if settings.catalog_prompt else ""
+    name += "_subset" if subset else ""
     (OUT / f"{name}_{stamp}.json").write_text(
         json.dumps({"summary": summary, "rows": rows}, indent=2, default=str),
         encoding="utf-8",
