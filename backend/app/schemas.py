@@ -44,8 +44,14 @@ class CarAttributes(BaseModel):
 
 class SellerInput(BaseModel):
     registration_number: str
+    make: str = Field(description="Declared by the seller, e.g. 'Maruti'")
+    model: str = Field(description="Declared by the seller, e.g. 'Swift'")
     year: int = Field(ge=1990, le=2030)
     km_driven: int = Field(ge=0)
     fuel_type: str = Field(description="Petrol, Diesel, CNG, LPG or Electric")
     transmission_type: str = Field(description="Manual or Automatic")
+    colour: Colour | None = None
+    reported_damage: bool | None = Field(
+        default=None, description="False = seller says the car has no damage"
+    )
     seller_notes: str | None = None

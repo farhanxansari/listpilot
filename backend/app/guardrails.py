@@ -43,8 +43,9 @@ def check_listing(listing, state) -> list[str]:
     if attrs.damages and not any(_has(w, text) for w in DAMAGE_WORDS):
         issues.append("Photos show damage but the listing does not disclose it.")
 
-    if attrs.make and attrs.make.split()[0].lower() not in text:
-        issues.append(f"Listing should name the make ({attrs.make}).")
+    make = state.seller.make
+    if make.split()[0].lower() not in text:
+        issues.append(f"Listing should name the make ({make}).")
 
     for feat in RISKY_FEATURES:
         if _has(feat, text) and not _has(feat, notes):

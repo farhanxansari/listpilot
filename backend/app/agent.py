@@ -7,24 +7,26 @@ from openai import OpenAI
 from app.config import settings
 from app.schemas import CarAttributes, SellerInput
 from app.tools import AgentState, run_tool, tool_specs
+from app.verify import verify
 
 client = OpenAI(base_url=settings.llm_base_url, api_key=settings.llm_api_key)
 MAX_STEPS = 10
 LOW_CONFIDENCE = 0.7
 
 SYSTEM_PROMPT = """You are ListPilot, an agent that prepares used-car listings for an Indian marketplace.
-You receive attributes extracted from the car's photos and the seller's details.
+The SELLER declares the make and model. The PHOTOS were checked for colour, body type and damage.
+Use the seller's make and model for pricing and the title. Never rename the car from the photos.
 
 Process:
 1. Validate the registration number.
 2. Check the odometer reading.
-3. Estimate the price band.
+3. Estimate the price band using the seller's make and model.
 4. Call flag_for_inspection for anything suspicious: invalid registration, abnormal mileage,
-   pricing failure, or any damage.
+   pricing failure, or any damage. Verification flags are already recorded; do not repeat them.
 5. Write the listing and call submit_listing. If rejected, fix every issue and resubmit.
 
-Rules: describe only what is in the attributes or seller notes. Never invent features.
-Do not mention variant or trim (e.g. M135, ZXi, SX) unless the seller notes state it.
+Rules: describe only what is in the seller details, photo checks or seller notes.
+Never invent features. Do not mention variant or trim unless the seller notes state it.
 Never include the registration number in the listing. Avoid subjective claims like
 'excellent condition'. Always disclose damage. Never write prices in the listing text."""
 
@@ -50,8 +52,9 @@ class AgentResult:
 def run_agent(attributes: CarAttributes, seller: SellerInput) -> AgentResult:
     state = AgentState(attributes=attributes, seller=seller)
 
-    # deterministic safety: low-confidence fields are flagged by code, not by the LLM
-    for fld, conf in attributes.confidence.model_dump().items():
+    # deterministic safety: done by code, not by the LLM
+    for fld in ("body_type", "colour"):  # make/model come from the seller now
+        conf = getattr(attributes.confidence, fld)
         if conf < LOW_CONFIDENCE:
             state.flags.append(
                 {
@@ -60,16 +63,19 @@ def run_agent(attributes: CarAttributes, seller: SellerInput) -> AgentResult:
                     "by": "system",
                 }
             )
+    state.flags.extend(verify(seller, attributes))
 
+    # the vision model's make/model guesses are left out on purpose
+    photo_checks = attributes.model_dump(exclude={"make", "model", "confidence"})
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
         {
             "role": "user",
             "content": json.dumps(
                 {
-                    "photo_attributes": attributes.model_dump(),
                     "seller": seller.model_dump(),
-                    "system_flags": state.flags,
+                    "photo_checks": photo_checks,
+                    "flags_already_recorded": state.flags,
                 }
             ),
         },
