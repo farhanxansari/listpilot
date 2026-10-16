@@ -1,5 +1,6 @@
 import json
 import time
+from collections.abc import Callable
 from dataclasses import dataclass
 
 from openai import OpenAI
@@ -49,8 +50,17 @@ class AgentResult:
         return "ready_to_publish"
 
 
-def run_agent(attributes: CarAttributes, seller: SellerInput) -> AgentResult:
+def run_agent(
+    attributes: CarAttributes,
+    seller: SellerInput,
+    on_event: Callable[[str, dict], None] | None = None,
+) -> AgentResult:
+    """Run the listing agent. on_event(type, data) is called for live progress."""
     state = AgentState(attributes=attributes, seller=seller)
+
+    def emit(type_: str, data: dict) -> None:
+        if on_event:
+            on_event(type_, data)
 
     # deterministic safety: done by code, not by the LLM
     for fld in ("body_type", "colour"):  # make/model come from the seller now
@@ -64,6 +74,7 @@ def run_agent(attributes: CarAttributes, seller: SellerInput) -> AgentResult:
                 }
             )
     state.flags.extend(verify(seller, attributes))
+    emit("verification", {"flags": list(state.flags)})
 
     # the vision model's make/model guesses are left out on purpose
     photo_checks = attributes.model_dump(exclude={"make", "model", "confidence"})
@@ -134,6 +145,7 @@ def run_agent(attributes: CarAttributes, seller: SellerInput) -> AgentResult:
                     "ms": round((time.perf_counter() - t0) * 1000),
                 }
             )
+            emit("tool", {"step": step, "tool": call.function.name, "result": result})
             messages.append(
                 {"role": "tool", "tool_call_id": call.id, "content": json.dumps(result)}
             )

@@ -21,6 +21,7 @@ dependencies = [
     "python-multipart>=0.0.32",
     "rapidfuzz>=3.14.6",
     "scikit-learn>=1.9.1",
+    "sqlmodel>=0.0.48",
     "uvicorn[standard]>=0.54.0",
 ]
 
