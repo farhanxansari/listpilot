@@ -3,9 +3,10 @@
 import json
 
 import pytest
+from fastapi.testclient import TestClient
+
 from app import main, pipeline
 from app.db import add_event, update_listing
-from fastapi.testclient import TestClient
 
 SELLER = {
     "registration_number": "DL3CAB1234",
