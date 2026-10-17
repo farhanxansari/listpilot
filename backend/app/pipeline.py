@@ -28,7 +28,9 @@ def run_pipeline(listing_id: str) -> None:
     emit("step", {"name": "photos", "message": f"Checking {len(photos)} photo(s)"})
     try:
         ext = extract_attributes(photos)
-        checks = ext.attributes.model_dump(exclude={"make", "model", "confidence"})
+        checks = ext.attributes.model_dump(
+            exclude={"make", "model"}
+        )  # keep confidence for the UI
         emit("photo_checks", checks)
 
         res = run_agent(ext.attributes, seller, on_event=emit)

@@ -3,14 +3,17 @@ import json
 import time
 import uuid
 from contextlib import asynccontextmanager
+from pathlib import Path
 from typing import Annotated
 
 from fastapi import BackgroundTasks, FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import ValidationError
 
 from app import pipeline
+from app.body_types import expected_body_type
 from app.config import settings
 from app.db import (
     FINAL_STATUSES,
@@ -26,6 +29,7 @@ MAX_PHOTOS = 6
 MAX_PHOTO_BYTES = 8 * 1024 * 1024
 ALLOWED_TYPES = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}
 STREAM_TIMEOUT_S = 600
+SPECS_PATH = Path(__file__).parent / "assets" / "specs.json"
 
 
 @asynccontextmanager
@@ -42,11 +46,29 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+# uploaded photos, so the frontend can show them (public: fine for a demo, not for production)
+app.mount(
+    "/uploads",
+    StaticFiles(directory=settings.upload_dir, check_dir=False),
+    name="uploads",
+)
 
 
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+@app.get("/catalog")
+def catalog():
+    """Makes and models the seller can pick from (the price model's training data)."""
+    rows = json.loads(SPECS_PATH.read_text(encoding="utf-8"))
+    by_make: dict[str, set[str]] = {}
+    for r in rows:
+        by_make.setdefault(r["brand"], set()).add(r["model"])
+    return {
+        "makes": [{"make": m, "models": sorted(v)} for m, v in sorted(by_make.items())]
+    }
 
 
 @app.post("/listings", status_code=202)
@@ -99,9 +121,15 @@ def read_listing(listing_id: str):
     listing = get_listing(listing_id)
     if listing is None:
         raise HTTPException(404, "Listing not found.")
+    seller = json.loads(listing.seller)
     return {
         "id": listing.id,
         "status": listing.status,
+        "seller": seller,
+        "declared_body_type": expected_body_type(seller.get("model")),
+        "photos": [
+            f"/uploads/{listing.id}/{Path(p).name}" for p in json.loads(listing.photos)
+        ],
         "result": json.loads(listing.result) if listing.result else None,
         "error": listing.error,
         "created_at": listing.created_at,

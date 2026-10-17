@@ -50,6 +50,10 @@ def test_create_and_read_listing(client):
     body = client.get(f"/listings/{listing_id}").json()
     assert body["status"] == "ready_to_publish"
     assert body["result"]["status"] == "ready_to_publish"
+    assert body["seller"]["model"] == "Swift"
+    assert body["declared_body_type"] == "hatchback"
+    assert body["photos"][0].startswith(f"/uploads/{listing_id}/")
+    assert client.get(body["photos"][0]).status_code == 200
 
 
 def test_stream_ends_with_done(client):
@@ -76,3 +80,9 @@ def test_non_image_rejected(client):
 def test_unknown_listing_is_404(client):
     assert client.get("/listings/nope").status_code == 404
     assert client.get("/listings/nope/stream").status_code == 404
+
+
+def test_catalog_lists_makes_and_models(client):
+    makes = {m["make"]: m["models"] for m in client.get("/catalog").json()["makes"]}
+    assert "Honda" in makes
+    assert "Amaze" in makes["Honda"]

@@ -145,10 +145,20 @@ def run_agent(
                     "ms": round((time.perf_counter() - t0) * 1000),
                 }
             )
-            emit("tool", {"step": step, "tool": call.function.name, "result": result})
+            emit(
+                "tool",
+                {
+                    "step": step,
+                    "tool": call.function.name,
+                    "args": call.function.arguments,
+                    "result": result,
+                },
+            )
             messages.append(
                 {"role": "tool", "tool_call_id": call.id, "content": json.dumps(result)}
             )
+            if state.listing is not None:
+                break  # accepted: ignore any duplicate submit calls in the same step
 
         if state.listing is not None:
             break
